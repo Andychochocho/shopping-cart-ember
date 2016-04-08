@@ -1,19 +1,19 @@
 <h2>Individual product page</h2>
 
-<div class = "singleProduct">
-<h1>{{model.title}}</h1>
-<img src = "{{model.image}}">
-<p>{{model.description}}</p>
-<p class = "cost">{{model.cost}}</p>
-</div>
+<div class="col s4 m4">
+  <div class="card">
+    <div class="card-panel hoverable">
 
-{{new-feedback product=model saveFeedback="saveFeedback"}}
-{{#each model.feedbacks as |feedback|}}
-<div class = "comment">
-<p>Comment:  {{feedback.message}}</p>
-<p>Author:  {{feedback.name}}</p>
-<hr />
-</div>
+      <div class="card-image">
+        {{#link-to "product" product.id}}<img src={{product.image}}>{{/link-to}}
+        <span class="card-title">{{product.title}}: ${{product.cost}}</span>
+      </div>
 
-<!-- <button {{action 'deleteAnswer' answer}}>Delete</button> -->
-{{/each}}
+      <div class="card-action">
+        <button class = "waves-effect waves-light btn-large"{{action 'addToCart' product}}>Add to Cart</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
